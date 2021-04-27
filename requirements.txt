@@ -1,0 +1,5 @@
+ics
+inky
+Pillow
+python-dotenv
+requests
