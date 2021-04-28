@@ -3,3 +3,4 @@ inky
 Pillow
 python-dotenv
 requests
+font-fredoka-one
