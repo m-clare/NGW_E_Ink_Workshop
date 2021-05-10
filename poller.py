@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-import fetch_calendarnnn
+import fetch_calendar
 import fetch_formatted_text
 import os
 import time
@@ -27,19 +27,23 @@ while True:
             inked_start = event['start']
             inked_end = event['end']
 
-            ####### WORKSHOP CODE GOES HERE #######
+            event_name = event['name'][:31]
             event_range = event['start'] + ' - ' + event['end']
             event_location = event['location'].split('/')[-1]
-            print(event['name'])
+
+            ####### WORKSHOP CODE GOES HERE #######
+
+            print(event_name)
             print(event_location)
             print(event_range)
 
-            img = fetch_formatted_text.get_text_image(inky_display, (event['name'], event_range, event_location))
+            img = fetch_formatted_text.get_text_image(inky_display, (event_name, event_range, event_location))
+
             # send to inky (comment out only on local machine)
             # fetch_formatted_text.rgb_to_inky(inky_display, img)
 
 
-    # sleep 30 seconds
-    time.sleep(30)
+    # sleep 1 minute before polling RC calendar again
+    time.sleep(60)
 
 

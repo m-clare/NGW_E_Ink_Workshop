@@ -11,7 +11,6 @@ def getNextEvent(token):
     for event in tl.today():
         # the events will always be in order, so we can return the first one happening after now
         if event.begin > datetime.now(timezone.utc):
-            #TODO figure out how we want to pass this data to the eink script
             next_event = {
                 'name': event.name,
                 'location': event.location,
