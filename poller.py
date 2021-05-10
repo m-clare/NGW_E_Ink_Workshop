@@ -1,5 +1,6 @@
 from dotenv import load_dotenv
-import fetch_calendar
+import fetch_calendarnnn
+import fetch_formatted_text
 import os
 import time
 
@@ -33,7 +34,10 @@ while True:
             print(event_location)
             print(event_range)
 
-            #fetch_formatted_font.get_text_image(inky_display, (event['name'], event_range, event_location))
+            img = fetch_formatted_text.get_text_image(inky_display, (event['name'], event_range, event_location))
+            # send to inky (comment out only on local machine)
+            # fetch_formatted_text.rgb_to_inky(inky_display, img)
+
 
     # sleep 30 seconds
     time.sleep(30)
