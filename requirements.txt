@@ -1,5 +1,5 @@
 ics
-inky[rpi,fonts]
+inky[auto,fonts,rpi]
 Pillow
 python-dotenv
 requests

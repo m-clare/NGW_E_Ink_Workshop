@@ -5,6 +5,8 @@ import requests
 calendar_base = 'https://www.recurse.com/calendar/events.ics?token='
 
 def getNextEvent(token):
+    if not token:
+        return None
     c = Calendar(requests.get(calendar_base + token).text)
     tl = c.timeline
 
