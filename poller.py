@@ -27,10 +27,13 @@ while True:
             inked_end = event['end']
 
             ####### WORKSHOP CODE GOES HERE #######
+            event_range = event['start'] + ' - ' + event['end']
+            event_location = event['location'].split('/')[-1]
             print(event['name'])
-            print(event['location'])
-            print(event['start'])
-            print(event['end'])
+            print(event_location)
+            print(event_range)
+
+            #fetch_formatted_font.get_text_image(inky_display, (event['name'], event_range, event_location))
 
     # sleep 30 seconds
     time.sleep(30)
