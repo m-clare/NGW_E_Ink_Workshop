@@ -32,7 +32,7 @@ def get_default_font_size(inky_display):
     return default_font_size
 
 
-def format_line(font, msg):
+def format_line(font, msg, inky_display):
     '''
     This splits a given line of text into multiple lines if necessary.
     Should be modified to truncate a given field (i.e. the event name) if too long
@@ -65,7 +65,7 @@ def get_text_image(inky_display, full_text):
     font = ImageFont.truetype(FredokaOne, fontsize)
     lines = []
     for line in full_text:
-        lines.extend(format_line(font, line))
+        lines.extend(format_line(font, line, inky_display))
     _, line_height = font.getsize(lines[0])
     centered_y = (inky_display.HEIGHT / 2) - ((line_height * len(lines)) / 2)
     height_counter = centered_y
