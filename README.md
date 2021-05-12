@@ -14,6 +14,7 @@ Talk slides available [here](https://docs.google.com/presentation/d/1zFcely572CD
 Follow the instructions at one of the following links to set up your Pi to be accessible over wifi via ssh (this is mainly to avoid having to work directly on the pi and utilize peripherals)
 
 https://code.mendhak.com/prepare-raspberry-pi/
+
 https://desertbot.io/blog/setup-pi-zero-w-headless-wifi
 
 In addition, you need to enable the SPI Interface within the pi
@@ -24,7 +25,7 @@ sudo raspi-config
 
 From the menu, go to interfacing options and enable ```P4 SPI```
 
-While the pHAT and wHAT cover all 40 pins, they only use a [few of them](https://pinout.xyz/pinout/inky_phat#)
+While the pHAT and wHAT cover all 40 pins, they only use a [few of them](https://pinout.xyz/pinout/inky_phat#).
 
 ## Troubleshooting Raspian Buster
 
