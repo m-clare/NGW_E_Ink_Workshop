@@ -20,7 +20,7 @@ https://desertbot.io/blog/setup-pi-zero-w-headless-wifi
 In addition, you need to enable the SPI Interface within the pi
 
 ```shell
-sudo raspi-config
+$ sudo raspi-config
 ```
 
 From the menu, go to interfacing options and enable ```P4 SPI```
@@ -32,13 +32,13 @@ While the pHAT and wHAT cover all 40 pins, they only use a [few of them](https:/
 During the workshop we had some issues with missing libraries in Raspian Buster. The following additional libraries were required for the Python packages (mainly Pillow as a result of numpy) needed for image creation.
 
 ```shell
-sudo apt-get install libatlas-base-dev
+$ sudo apt-get install libatlas-base-dev
 ```
 
 You may need some additional image libraries:
 
 ```shell
-sudo apt-get install libopenjp2-7 libtiff5
+$ sudo apt-get install libopenjp2-7 libtiff5
 ```
 
 ## Working with your Inky 
