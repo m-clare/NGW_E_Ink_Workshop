@@ -2,6 +2,7 @@ from dotenv import load_dotenv
 import fetch_calendar
 import fetch_formatted_text
 from inky.auto import auto
+from inky import InkyPHAT, InkyWHAT
 import os
 import time
 
@@ -10,7 +11,7 @@ load_dotenv()
 # RC calendar token from .env
 token = os.getenv('ICS_TOKEN')
 
-inky_display = auto()
+inky_display = auto() # change to inky_display = InkyPHAT() or inky_display = InkyWHAT() if autodetect doesn't work
 
 inked_name = ''
 inked_location = ''
