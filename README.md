@@ -35,6 +35,12 @@ During the workshop we had some issues with missing libraries in Raspian Buster.
 sudo apt-get install libatlas-base-dev
 ```
 
+You may need some additional image libraries:
+
+```shell
+sudo apt-get install libopenjp2-7 libtiff5
+```
+
 ## Working with your Inky 
 The helper scripts included should be modified (particularly if your Pi has issues autorecognizing your Inky). 
 
