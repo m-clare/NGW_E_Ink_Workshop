@@ -9,26 +9,21 @@ inky_palettes=  {'black': (255, 255, 255,
                  'red': (255, 255, 255,
                          0, 0, 0,
                          255, 0, 0,
-                         255, 255, 255) + (0, 0, 0) * 252,
+                         255, 255, 255) + (0, 0, 0) * 253,
                  'yellow': (255, 255, 255,
                             0, 0, 0,
                             255, 255, 0,
-                            255, 255, 255) + (0, 0, 0) * 252}
+                            255, 255, 255) + (0, 0, 0) * 253}
 
 
 def get_default_font_size(inky_display):
     '''
     Hardcoded default font sizes, because rescaling is annoying with PIL!
     '''
-    dimensions = {'height': (104, 300), 'width': (212, 400)} # inky pHAT and wHAT properties
-    default_font_size = 12
-    if inky_display.HEIGHT not in dimensions['height']:
-        raise ValueError("InkyPHAT and InkyWHAT are currently the only displays supported")
+    if inky_display.HEIGHT < 200: # smaller font for inky pHAT
+        default_font_size = 20
     else:
-        if inky_display.HEIGHT == 104:
-            default_font_size = 20
-        else:
-            default_font_size = 36
+        default_font_size = 36
     return default_font_size
 
 
@@ -94,16 +89,3 @@ def rgb_to_inky(inky_display, img):
     # img = img.rotate(180, expand=True)
     inky_display.set_image(img)
     inky_display.show()
-
-
-if __name__ == "__main__":
-    # create blank image
-    inky_display = InkyWHAT("red") # set your inky
-
-    input = ("Music Consumption Group", "16:30 - 21:00", "presentation_space")
-
-    img = Image.new("RGB", (inky_display.WIDTH, inky_display.HEIGHT), (255, 255, 255))
-    img = get_text_image(inky_display, input)
-    rgb_to_inky(inky_display, img)
-
-

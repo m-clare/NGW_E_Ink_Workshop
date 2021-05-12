@@ -31,7 +31,7 @@ while True:
             inked_start = event['start']
             inked_end = event['end']
 
-            event_name = event['name'][:31]
+            event_name = event['name'][:31] # event_name truncated to fit inky PHAT - can be adjusted
             event_range = event['start'] + ' - ' + event['end']
             event_location = event['location'].split('/')[-1]
 
