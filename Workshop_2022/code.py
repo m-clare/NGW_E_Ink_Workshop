@@ -38,7 +38,7 @@ def get_calendar_events(rc_calendar_token, timezone, demo_text=None):
         "Content-Length": "0",
     }
     # URL to the NGW calendar web service
-    url = ( "http://localhost:5000/rc-calendar?token={0}&tz={1}".format(rc_calendar_token,timezone) )
+    url = ( "http://tinky-calendar.recurse.com/?token={0}&tz={1}".format(rc_calendar_token,timezone) )
     resp = magtag.network.requests.get(url, headers=headers)
     resp_json = resp.json()
     if "error" in resp_json:
@@ -115,7 +115,7 @@ json_events = """{
 ]
 }"""
 # parse the json response
-the_data = get_calendar_events(secrets['rc_calendar_token'],secrets['timezone'],demo_text=json_events)
+the_data = get_calendar_events(secrets['rc_calendar_token'],secrets['timezone']) #,demo_text=json_events)
 
 # DisplayIO Setup
 magtag.set_background(0xFFFFFF)
