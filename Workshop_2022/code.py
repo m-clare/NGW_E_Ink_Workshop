@@ -27,31 +27,24 @@ r = rtc.RTC()
 
 magtag.network.connect()
 
-def get_calendar_events(calendar_id, max_events, time_min):
+def get_calendar_events(rc_calendar_token, timezone, demo_text=None):
     """Returns upcoming events from the NGW calendar
     Response is the current date pretty printed, and a list of events ordered by their start date/time in ascending order.
     """
-
+    if demo_text:
+        return json.loads(demo_text)
     headers = {
         "Accept": "application/json",
         "Content-Length": "0",
     }
-
-    # this is the URL to the NGW calendar web service
-    # url = ( "http://localhost:5000/rc-calendar?token={0}&tz={1}".format(rc_calendar_token,timezone) )
+    # URL to the NGW calendar web service
+    url = ( "http://localhost:5000/rc-calendar?token={0}&tz={1}".format(rc_calendar_token,timezone) )
     resp = magtag.network.requests.get(url, headers=headers)
     resp_json = resp.json()
     if "error" in resp_json:
         raise RuntimeError("Error:", resp_json)
     resp.close()
-    # parse the 'items' array so we can iterate over it easier
-    items = []
-    resp_items = resp_json["items"]
-    if not resp_items:
-        print("No events scheduled for today!")
-    for event in range(0, len(resp_items)):
-        items.append(resp_items[event])
-    return items
+    return resp_json
 
 def display_calendar_events(resp_events):
     # Display all calendar events
@@ -97,8 +90,6 @@ def display_calendar_events(resp_events):
             line_spacing=0.65,
         )
 
-
-
 # demo data
 json_events = """{
 "date": "Sunday, May 08, 2022",
@@ -124,7 +115,7 @@ json_events = """{
 ]
 }"""
 # parse the json response
-the_thing = json.loads(json_events)
+the_data = get_calendar_events(secrets['rc_calendar_token'],secrets['timezone'],demo_text=json_events)
 
 # DisplayIO Setup
 magtag.set_background(0xFFFFFF)
@@ -146,13 +137,13 @@ label_header = magtag.add_text(
 )
 # setup header label
 magtag.set_text(
-    the_thing['date'], label_header, auto_refresh=False
+    the_data['date'], label_header, auto_refresh=False
 )
 
 print("fetching calendar events...")
 
 print("displaying events")
-display_calendar_events(the_thing['events'])
+display_calendar_events(the_data['events'])
 
 magtag.refresh()
 
