@@ -19,7 +19,7 @@ secrets = {
 ```
 
 ## Circuit Python Libraries required
-The libraries below will need to be in the CIRCUITPY/lib directory
+The libraries below will need to be in the CIRCUITPY/lib directory on the MagTag.
 - adafruit_bitmap_font
 - adafruit_display_shapes
 - adafruit_io
@@ -29,6 +29,7 @@ The libraries below will need to be in the CIRCUITPY/lib directory
 
 ## Fonts required
 The files below can be found in the [fonts](https://github.com/adafruit/Adafruit_Learning_System_Guides/tree/main/MagTag_Google_Calendar/fonts) directory of the origin project. Also, you want to download these via browser, you don't want to clone this massive repo!
+Much like the origin project, you will want these files in the CIRCUITPY/fonts directory on the MagTag.
 - Arial-12.pcf
 - Arial-14.pcf
 - Arial-18.pcf
