@@ -39,3 +39,11 @@ Much like the origin project, you will want these files in the CIRCUITPY/fonts d
 Once you have your MagTag attached to your computer, and the settings above entered into the CIRCUITPY/secrets.py, you can copy the code.py in this same directory to the CIRCUITPY/ directory on your MagTag, and it should work!
 
 For 'production' use, you will want to change the `REFRESH_TIME = 1` value to something like `REFRESH_TIME = 15` but for the workshop this is set to 1 minute for easy setup and debugging.
+
+# Troubleshooting
+
+Things just aren't working right? You may need to update your circuit python version!
+
+AdaFruit has a helpful [MagTag specific guide](https://learn.adafruit.com/adafruit-magtag/circuitpython) for updating to Circuit Python 7, I recommend using the UF2 updater.
+
+Once you update, you will need to grab the latest [MagTag specific CircuitPython libraries](https://learn.adafruit.com/adafruit-magtag/circuitpython-libraries-2) to get the required libraries listed above.
