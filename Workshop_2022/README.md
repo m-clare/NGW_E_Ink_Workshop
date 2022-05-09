@@ -33,3 +33,9 @@ Much like the origin project, you will want these files in the CIRCUITPY/fonts d
 - Arial-12.pcf
 - Arial-14.pcf
 - Arial-18.pcf
+
+## Do the actual thing
+
+Once you have your MagTag attached to your computer, and the settings above entered into the CIRCUITPY/secrets.py, you can copy the code.py in this same directory to the CIRCUITPY/ directory on your MagTag, and it should work!
+
+For 'production' use, you will want to change the `REFRESH_TIME = 1` value to something like `REFRESH_TIME = 15` but for the workshop this is set to 1 minute for easy setup and debugging.
