@@ -63,32 +63,36 @@ def display_calendar_events(resp_events):
         print("Event Location:", event_location)
         print("-" * 40)
         # Generate labels holding event info
-        magtag.add_text(
+        index_start = magtag.add_text(
             text_font=font_event,
             text_position=(7, 33 + (event_idx * 35)),
             text_color=0x000000,
-            text=event_start,
+            text=None,
         )
-        magtag.add_text(
+        magtag.set_text(event_start, index=index_start, auto_refresh=False)
+        index_end = magtag.add_text(
             text_font=font_event,
             text_position=(7, 50 + (event_idx * 35)),
             text_color=0x000000,
-            text=event_end,
+            text=None,
         )
-        magtag.add_text(
+        magtag.set_text(event_end, index=index_end, auto_refresh=False)
+        index_name = magtag.add_text(
             text_font=font_event,
             text_position=(55, 33 + (event_idx * 35)),
             text_color=0x000000,
-            text=event_name,
+            text=None,
             line_spacing=0.65,
         )
-        magtag.add_text(
+        magtag.set_text(event_name, index=index_name, auto_refresh=False)
+        index_location = magtag.add_text(
             text_font=font_event,
             text_position=(55, 50 + (event_idx * 35)),
             text_color=0x000000,
-            text=event_location,
+            text=None,
             line_spacing=0.65,
         )
+        magtag.set_text(event_location, index=index_location, auto_refresh=False)
 
 # demo data
 json_events = """{
