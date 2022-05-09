@@ -1,5 +1,7 @@
 # Calendar display for Recurse Center's Never Graduate Week 2022
 
+![NGW](einkNGW.png)
+
 ## Required Hardware
 AdaFruit [MagTag](https://www.adafruit.com/product/4800), you will likely want to get a battery and the magnet feet.
 
